@@ -1,0 +1,66 @@
+.modal-cont {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-view {
+	background-color: white;
+	height: 80%;
+	width: 60%;
+	box-shadow: 0px 4px 6px -1px rgba(203, 12, 159, 0.12),
+		0px 2px 4px -1px rgba(203, 12, 159, 0.07);
+	border-radius: 8px;
+}
+
+.create-head {
+	text-align: center;
+	font-size: 32px;
+	font-weight: 800;
+	font-family: poppins;
+}
+
+.create-inputs {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 10px;
+}
+
+.create-label {
+	font-family: "Open Sans";
+	padding: 5px;
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.create-input {
+	padding: 5px 5px;
+	display: flex;
+	flex-direction: column;
+	background-color: rgb(232, 240, 254);
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	height: 25px;
+	font-size: 18px;
+}
+
+.create-box {
+	width: 100%;
+	display: flex;
+}
+
+.createOrder-left {
+	width: 50%;
+}
+
+.createOrder-right {
+	width: 50%;
+}
