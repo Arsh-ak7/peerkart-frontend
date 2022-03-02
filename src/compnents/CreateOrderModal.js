@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "../css/CreateOrderModal.css";
-const CreateOrderModal = ({ modalVisible }) => {
-	const [orderName, setOrderName] = useState("");
-	const [itemName, setItemName] = useState("");
-	const [category, setCategory] = useState("");
-	const [qty, setQty] = useState("");
+import React, { useState } from 'react';
+import '../css/CreateOrderModal.css';
+const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
+	const [orderName, setOrderName] = useState('');
+	const [itemName, setItemName] = useState('');
+	const [category, setCategory] = useState('');
+	const [qty, setQty] = useState('');
 	console.log(itemName);
 	return (
 		<>
@@ -46,6 +46,9 @@ const CreateOrderModal = ({ modalVisible }) => {
 								</div>
 							</div>
 							<div className='createOrder-right'>right</div>
+						</div>
+						<div className='back' onClick={() => setModalVisible(false)}>
+							Back Button
 						</div>
 					</div>
 				</div>
