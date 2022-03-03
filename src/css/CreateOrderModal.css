@@ -37,8 +37,17 @@
 }
 
 .create-label {
-	font-family: "Open Sans";
-	padding: 5px;
+	font-family: 'Open Sans';
+	padding: 5px 0px;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.create-label-unit {
+	font-family: 'Open Sans';
+	padding: 5px 0px 10px;
+	margin-top: -8px;
 	font-size: 16px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -48,25 +57,32 @@
 	padding: 5px 5px;
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(232, 240, 254);
-	border: none;
-	outline: none;
-	border-radius: 3px;
+	/* background-color: rgb(232, 240, 254); */
+	/* border: none; */
+	/* outline: none; */
 	height: 25px;
+	border-width: 1px;
+	border-color: rgb(133, 133, 133, 0.5);
+	border-radius: 5px;
 	font-size: 18px;
-	width: 100%;
+	width: 97%;
+	margin: 10px 0px;
+	text-align: center;
 }
 
 .create-input-qty {
 	padding: 5px 5px;
 	display: flex;
 	flex-direction: column;
-	background-color: rgb(232, 240, 254);
-	border: none;
+	border-width: 1px;
+	border-color: rgb(133, 133, 133, 0.5);
+	border-radius: 5px;
 	outline: none;
-	border-radius: 3px;
 	height: 25px;
+	width: 50%;
 	font-size: 18px;
+	margin: 10px 0px;
+	text-align: center;
 }
 
 .create-box {
@@ -87,7 +103,9 @@
 .qty-unit {
 	display: flex;
 	width: 100%;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	align-items: center;
+	padding-right: 10%;
 }
 
 .unit {
@@ -106,13 +124,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: #cb0c9f;
+	color: black;
 	padding: 10px 25px;
 	cursor: pointer;
 	margin-right: 10px;
+	margin-top: 7.5%;
+	margin-bottom: 5%;
 }
 
 .back {
@@ -123,10 +143,11 @@
 	/* border: 1px solid rgb(203, 12, 159); */
 	/* height: 100%; */
 	width: 120px;
+	margin-top: 5%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #000;
@@ -142,5 +163,35 @@
 }
 
 .input-box {
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.input-box-cat {
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 10px 0px;
+}
+
+.qty-input-div {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.MuiSelect-outlined {
+	/* padding: 10px !important; */
+	align-items: center !important;
+}
+
+.units-qty {
+	height: 45px;
+}
+
+.create-order-hr {
+	height: 1px;
+	color: #e6e6e6;
+	width: 66em;
 	width: 100%;
 }
