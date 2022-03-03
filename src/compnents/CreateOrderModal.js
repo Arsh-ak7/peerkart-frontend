@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
-import '../css/CreateOrderModal.css';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import LineImg from '../images/line.svg';
+import React, { useState } from "react";
+import "../css/CreateOrderModal.css";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import LineImg from "../images/line.svg";
+import { Category } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/actions/cartActions";
 
 const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
-	const [orderName, setOrderName] = useState('');
-	const [itemName, setItemName] = useState('');
-	const [category, setCategory] = useState('');
-	const [qty, setQty] = useState('');
-	const [unit, setUnit] = useState('');
+	const [orderName, setOrderName] = useState("");
+	const [itemName, setItemName] = useState("");
+	const [category, setCategory] = useState("");
+	const [qty, setQty] = useState("");
+	const [unit, setUnit] = useState("");
+	const dispatch = useDispatch();
+	const itemsInCart = useSelector((state) => state.cart.cart);
 
 	return (
 		<>
@@ -44,8 +49,7 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 											<FormControl fullWidth size='small' margin='none'>
 												<InputLabel
 													id='demo-simple-select-label'
-													style={{ padding: '1px' }}
-												>
+													style={{ padding: "1px" }}>
 													Category
 												</InputLabel>
 												<Select
@@ -53,18 +57,20 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 													id='demo-simple-select'
 													value={category}
 													label='category'
-													onChange={(e) => setCategory(e.target.value)}
-												>
-													<MenuItem value={10}>Groceries</MenuItem>
-													<MenuItem value={20}>Twenty</MenuItem>
-													<MenuItem value={30}>Thirty</MenuItem>
+													onChange={(e) => setCategory(e.target.value)}>
+													<MenuItem value={"Groceries"}>Groceries</MenuItem>
+													<MenuItem value={"Fish and Meat"}>
+														Fish and Meat
+													</MenuItem>
+													<MenuItem value={"Stationary"}>Stationary</MenuItem>
+													<MenuItem value={"Medicines"}>Medicines</MenuItem>
 												</Select>
 											</FormControl>
 										</Box>
 									</div>
-									<img src={LineImg} alt='hr' style={{ width: '100%' }} />
-									<div className='input-box'>
-										<label className='create-label'>Item Name</label>
+									<img src={LineImg} alt='hr' style={{ width: "100%" }} />
+									<div className='input-box-itn'>
+										<label className='create-label-itn'>Item Name</label>
 										<input
 											className='create-input'
 											value={itemName}
@@ -111,11 +117,10 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 															id='demo-simple-select'
 															value={unit}
 															label='category'
-															onChange={(e) => setUnit(e.target.value)}
-														>
-															<MenuItem value={'pieces'}>Pieces</MenuItem>
-															<MenuItem value={'Kg'}>Kg</MenuItem>
-															<MenuItem value={'Ltr'}>Ltr</MenuItem>
+															onChange={(e) => setUnit(e.target.value)}>
+															<MenuItem value={"pieces"}>Pieces</MenuItem>
+															<MenuItem value={"Kg"}>Kg</MenuItem>
+															<MenuItem value={"Ltr"}>Ltr</MenuItem>
 														</Select>
 													</FormControl>
 												</Box>
@@ -125,9 +130,15 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 
 									{/* <div className='btns'> */}
 
-									<div className='add-item-btn'>Add Item</div>
+									<div
+										className='add-item-btn'
+										onClick={() =>
+											addToCart(dispatch, { itemName, qty, unit })
+										}>
+										Add Item
+									</div>
 									{/* <hr className='create-order-hr' /> */}
-									<img src={LineImg} alt='hr' style={{ width: '100%' }} />
+									<img src={LineImg} alt='hr' style={{ width: "100%" }} />
 									<div className='back' onClick={() => setModalVisible(false)}>
 										Back
 									</div>
@@ -135,7 +146,29 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 									{/* </div> */}
 								</div>
 							</div>
-							<div className='createOrder-right'>right</div>
+							<div className='createOrder-right'>
+								<div>
+									<span>Order Name: </span>
+									<span>{orderName}</span>
+								</div>
+								<div>
+									<span>Category: </span>
+									<span>{category}</span>
+								</div>
+								<div>
+									<span>Items In Cart</span>
+									<div>
+										{itemsInCart.map((item) => (
+											<div>
+												<span>{item.itemName}</span>
+												<span>
+													{item.qty} {item.unit}
+												</span>
+											</div>
+										))}
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
