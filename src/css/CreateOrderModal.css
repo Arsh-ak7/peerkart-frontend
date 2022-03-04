@@ -37,7 +37,7 @@
 }
 
 .create-label {
-	font-family: 'Open Sans';
+	font-family: "Open Sans";
 	padding: 1rem 0px;
 	font-size: 1rem;
 	font-weight: 600;
@@ -45,7 +45,7 @@
 }
 
 .create-label-itn {
-	font-family: 'Open Sans';
+	font-family: "Open Sans";
 	padding: 0.7rem 0px;
 	font-size: 1rem;
 	font-weight: 600;
@@ -53,7 +53,7 @@
 }
 
 .create-label-unit {
-	font-family: 'Open Sans';
+	font-family: "Open Sans";
 	padding: 5px 0px 10px;
 	margin-top: -8px;
 	font-size: 16px;
@@ -95,6 +95,7 @@
 
 .create-box {
 	width: 100%;
+	height: 100%;
 	display: flex;
 }
 
@@ -106,6 +107,9 @@
 
 .createOrder-right {
 	width: 45%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 .qty-unit {
@@ -127,12 +131,11 @@
 		0px 2px 4px -1px rgba(203, 12, 159, 0.07);
 	border-radius: 8px;
 	/* border: 1px solid rgb(203, 12, 159); */
-	height: 100%;
 	width: 120px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: black;
@@ -154,7 +157,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: 'Poppins', sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #000;
@@ -205,4 +208,67 @@
 	color: #e6e6e6;
 	width: 66em;
 	width: 100%;
+}
+
+.label-right {
+	font-family: "Poppins";
+	font-weight: 700;
+	font-size: 1rem;
+}
+
+.label-right-value {
+	font-family: "Lora";
+}
+
+.checkout-btn {
+	background: #ffffff;
+	box-shadow: 0px 4px 6px -1px rgba(203, 12, 159, 0.12),
+		0px 2px 4px -1px rgba(203, 12, 159, 0.07);
+	border-radius: 8px;
+	width: 120px;
+	margin-top: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #000;
+	padding: 3% 7%;
+	cursor: pointer;
+}
+
+.right-heads {
+	height: 7%;
+	padding: 1.25rem 0;
+}
+
+.right-heads-cat {
+	height: 7%;
+}
+
+.items-wrapper {
+	height: 45%;
+}
+
+.addCart-btn {
+	height: 15%;
+	display: flex;
+	justify-content: center;
+}
+
+.item-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2% 5%;
+}
+
+.item-row-right {
+	display: flex;
+}
+
+.item-cont {
+	overflow-y: scroll;
+	height: 80%;
 }
