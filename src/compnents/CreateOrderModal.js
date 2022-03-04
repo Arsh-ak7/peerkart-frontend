@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import "../css/CreateOrderModal.css";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import LineImg from "../images/line.svg";
-import { Category } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../redux/actions/cartActions";
+import React, { useState } from 'react';
+import '../css/CreateOrderModal.css';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import LineImg from '../images/line.svg';
+import { Category } from '@mui/icons-material';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../redux/actions/cartActions';
 
 const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
-	const [orderName, setOrderName] = useState("");
-	const [itemName, setItemName] = useState("");
-	const [category, setCategory] = useState("");
-	const [qty, setQty] = useState("");
-	const [unit, setUnit] = useState("");
+	const [orderName, setOrderName] = useState('');
+	const [itemName, setItemName] = useState('');
+	const [category, setCategory] = useState('');
+	const [qty, setQty] = useState('');
+	const [unit, setUnit] = useState('');
 	const dispatch = useDispatch();
 	const itemsInCart = useSelector((state) => state.cart.cart);
 
@@ -36,6 +36,7 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 											type='text'
 											name='orderName'
 											onChange={(e) => setOrderName(e.target.value)}
+											placeholder='Eg. Daily Needs List'
 										/>
 									</div>
 									<div className='input-box-cat'>
@@ -49,7 +50,8 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 											<FormControl fullWidth size='small' margin='none'>
 												<InputLabel
 													id='demo-simple-select-label'
-													style={{ padding: "1px" }}>
+													style={{ padding: '1px' }}
+												>
 													Category
 												</InputLabel>
 												<Select
@@ -57,18 +59,23 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 													id='demo-simple-select'
 													value={category}
 													label='category'
-													onChange={(e) => setCategory(e.target.value)}>
-													<MenuItem value={"Groceries"}>Groceries</MenuItem>
-													<MenuItem value={"Fish and Meat"}>
+													onChange={(e) => setCategory(e.target.value)}
+												>
+													<MenuItem value={'Groceries'}>Groceries</MenuItem>
+													<MenuItem value={'Fish and Meat'}>
 														Fish and Meat
 													</MenuItem>
-													<MenuItem value={"Stationary"}>Stationary</MenuItem>
-													<MenuItem value={"Medicines"}>Medicines</MenuItem>
+													<MenuItem value={'Stationary'}>Stationary</MenuItem>
+													<MenuItem value={'Medicines'}>Medicines</MenuItem>
 												</Select>
 											</FormControl>
 										</Box>
 									</div>
-									<img src={LineImg} alt='hr' style={{ width: "100%" }} />
+									<img
+										src={LineImg}
+										alt='hr'
+										style={{ width: '100%', margin: '2% 0' }}
+									/>
 									<div className='input-box-itn'>
 										<label className='create-label-itn'>Item Name</label>
 										<input
@@ -77,6 +84,7 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 											type='text'
 											name='itemName'
 											onChange={(e) => setItemName(e.target.value)}
+											placeholder='Eg. Bread'
 										/>
 									</div>
 
@@ -89,6 +97,7 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 													value={qty}
 													type='number'
 													name='qty'
+													placeholder='Eg. 1'
 													onChange={(e) => setQty(e.target.value)}
 												/>
 											</div>
@@ -117,10 +126,11 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 															id='demo-simple-select'
 															value={unit}
 															label='category'
-															onChange={(e) => setUnit(e.target.value)}>
-															<MenuItem value={"pieces"}>Pieces</MenuItem>
-															<MenuItem value={"Kg"}>Kg</MenuItem>
-															<MenuItem value={"Ltr"}>Ltr</MenuItem>
+															onChange={(e) => setUnit(e.target.value)}
+														>
+															<MenuItem value={'pieces'}>Pieces</MenuItem>
+															<MenuItem value={'Kg'}>Kg</MenuItem>
+															<MenuItem value={'Ltr'}>Ltr</MenuItem>
 														</Select>
 													</FormControl>
 												</Box>
@@ -132,13 +142,12 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 
 									<div
 										className='add-item-btn'
-										onClick={() =>
-											addToCart(dispatch, { itemName, qty, unit })
-										}>
+										onClick={() => addToCart(dispatch, { itemName, qty, unit })}
+									>
 										Add Item
 									</div>
 									{/* <hr className='create-order-hr' /> */}
-									<img src={LineImg} alt='hr' style={{ width: "100%" }} />
+									<img src={LineImg} alt='hr' style={{ width: '100%' }} />
 									<div className='back' onClick={() => setModalVisible(false)}>
 										Back
 									</div>

@@ -37,7 +37,7 @@
 }
 
 .create-label {
-	font-family: "Open Sans";
+	font-family: 'Open Sans';
 	padding: 1rem 0px;
 	font-size: 1rem;
 	font-weight: 600;
@@ -45,7 +45,7 @@
 }
 
 .create-label-itn {
-	font-family: "Open Sans";
+	font-family: 'Open Sans';
 	padding: 0.7rem 0px;
 	font-size: 1rem;
 	font-weight: 600;
@@ -53,7 +53,7 @@
 }
 
 .create-label-unit {
-	font-family: "Open Sans";
+	font-family: 'Open Sans';
 	padding: 5px 0px 10px;
 	margin-top: -8px;
 	font-size: 16px;
@@ -132,14 +132,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: black;
-	padding: 10px 25px;
+	padding: 3% 7%;
 	cursor: pointer;
-	margin-right: 10px;
-	margin-top: 7.5%;
+	margin-top: 5%;
 	margin-bottom: 5%;
 }
 
@@ -155,11 +154,11 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: "Poppins", sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
 	text-transform: uppercase;
 	color: #000;
-	padding: 10px 25px;
+	padding: 3% 7%;
 	cursor: pointer;
 }
 
@@ -172,7 +171,7 @@
 
 .input-box {
 	width: 100%;
-	padding: 10px 0px;
+	padding: 2% 0px;
 }
 
 .input-box-cat {
