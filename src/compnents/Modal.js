@@ -2,7 +2,6 @@ import React from "react";
 import "../css/Modal.css";
 
 function Modal({ setModalOrderOpen }) {
-  console.log("Model");
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -16,23 +15,103 @@ function Modal({ setModalOrderOpen }) {
           </button>
         </div>
         <div className="title">
-          <h1>Are You Sure You Want to Continue?</h1>
+          <h1>Created Orders</h1>
         </div>
         <div className="body">
-          <p>The next page looks amazing. Hope you want to go there!</p>
+        <div className="created_modal_list">
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+              <div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+							<div className="created_modal_list_item">
+								<span className="created_modal_list_item_1 upper">daily needs list</span>
+								<span className="created_modal_list_item_2 green-color">345</span>
+								<span className="created_modal_list_item_3 green">View</span>
+							</div>
+						</div>
+					</div>
         </div>
-        <div className="footer">
-          <button
-            onClick={() => {
-              setModalOrderOpen(false);
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button>Continue</button>
-        </div>
-      </div>
     </div>
   );
 }

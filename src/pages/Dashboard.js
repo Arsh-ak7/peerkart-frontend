@@ -10,9 +10,13 @@ import trancoin from "../images/trancoin.jpg";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlus,faPencil} from "@fortawesome/free-solid-svg-icons";
 import Modal from "../compnents/Modal";
+import ModalAccepted from "../compnents/ModalAccepted";
+import ModalTransaction from "../compnents/ModalTransaction";
 
 const Dashboard = () => {
 	const [modalOrderOpen, setModalOrderOpen] = useState(false);
+	const [modalAcceptedOrderOpen, setModalAcceptedOrderOpen] = useState(false);
+	const [modalTransactionOpen, setModalTransactionOpen] = useState(false);
 	return(
 		<>
 		<div className="wrapper">
@@ -47,34 +51,34 @@ const Dashboard = () => {
 								<span className="created_list_item_1 upper">Daily Needs List</span>
 								<span className="created_list_item_2 upper">fish and meat</span>
 								<span className="created_list_item_3 upper">345</span>
-								<span className="created_list_item_4 upper" onClick={()=>{setModalOrderOpen(true);console.log("hi");}}>manage</span>
+								<span className="created_list_item_4 upper">manage</span>
 							</div>
 							<div className="created_list_item">
 								<span className="created_list_item_1 upper">Daily Needs List</span>
 								<span className="created_list_item_2 upper">fish and meat</span>
 								<span className="created_list_item_3 upper">345</span>
-								<span className="created_list_item_4 upper green" onClick={()=>{setModalOrderOpen(true)}}>view</span>
+								<span className="created_list_item_4 upper green">view</span>
 							</div>
 							<div className="created_list_item">
 								<span className="created_list_item_1 upper">Daily Needs List</span>
 								<span className="created_list_item_2 upper">fish and meat</span>
 								<span className="created_list_item_3 upper">345</span>
-								<span className="created_list_item_4 upper" onClick={()=>{setModalOrderOpen(true)}}>manage</span>
+								<span className="created_list_item_4 upper">manage</span>
 							</div>
 							<div className="created_list_item">
 								<span className="created_list_item_1 upper">Daily Needs List</span>
 								<span className="created_list_item_2 upper">fish and meat</span>
 								<span className="created_list_item_3 upper">345</span>
-								<span className="created_list_item_4 upper" onClick={()=>{setModalOrderOpen(true)}}>manage</span>
+								<span className="created_list_item_4 upper">manage</span>
 							</div>
 							<div className="created_list_item">
 								<span className="created_list_item_1 upper">Daily Needs List</span>
 								<span className="created_list_item_2 upper">fish and meat</span>
 								<span className="created_list_item_3 upper">345</span>
-								<span className="created_list_item_4 upper green" onClick={()=>{setModalOrderOpen(true);console.log("hi2")}}>view</span>
+								<span className="created_list_item_4 upper green">view</span>
 							</div>
 						</div>
-						<div className="moretransaction">
+						<div className="moretransaction"  onClick={()=>{setModalOrderOpen(true)}}>
 							<FontAwesomeIcon className="plusicon" icon={faPlus}></FontAwesomeIcon>
 							<span className="moretranstext">Show More Orders</span>
 						</div>
@@ -115,7 +119,7 @@ const Dashboard = () => {
 								<span className="accepted_list_item_4 upper green">view</span>
 							</div>
 						</div>
-						<div className="moretransaction">
+						<div className="moretransaction"  onClick={()=>{setModalAcceptedOrderOpen(true)}}>
 							<FontAwesomeIcon className="plusicon" icon={faPlus}></FontAwesomeIcon>
 							<span className="moretranstext">Show More Orders</span>
 						</div>
@@ -149,7 +153,7 @@ const Dashboard = () => {
 								<span className="transaction_list_item_3">View</span>
 							</div>
 						</div>
-						<div className="moretransaction">
+						<div className="moretransaction" onClick={()=>setModalTransactionOpen(true)}>
 							<FontAwesomeIcon className="plusicon" icon={faPlus}></FontAwesomeIcon>
 							<span className="moretranstext">Show More Transactions</span>
 						</div>
@@ -159,6 +163,8 @@ const Dashboard = () => {
 			</div>
 		</div>
 		{modalOrderOpen && <Modal setModalOrderOpen={setModalOrderOpen}/>}
+		{modalAcceptedOrderOpen && <ModalAccepted setModalAcceptedOrderOpen={setModalAcceptedOrderOpen}/>}
+		{modalTransactionOpen && <ModalTransaction setModalTransactionOpen={setModalTransactionOpen}/>}
 		</>
 		
 	) 

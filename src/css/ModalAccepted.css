@@ -25,7 +25,6 @@
 }
 
 .modalContainer .title {
-  width:auto;
   display: inline-block;
   text-align: center;
   margin-top: 10px;
@@ -43,12 +42,12 @@
   cursor: pointer;
 }
 
-.modalContainer .body {
+.modalContainer .acceptbody {
   font-size: 1.7rem;
   text-align: center;
 }
 
-.created_modal_list_item{
+.accepted_modal_list_item{
 	display: flex;
 	padding:15px 25px;
 	font-size: 14px;
@@ -59,7 +58,7 @@
 .green{
 	background: linear-gradient(135deg, #98EC2D 0%, #17AD37 100%);
 }
-.created_modal_list_item_3{
+.accepted_modal_list_item_3{
 	background-color:#EB5757;
 	font-weight: 500;
 	border-radius: 8px;
@@ -76,4 +75,3 @@
 .red-color{
 	color:red;
 }
-
