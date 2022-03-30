@@ -1,54 +1,71 @@
 import constants from '../constants';
 
-let initialState = {
-	cart: [],
+const initialState = {
+  name: '',
+  category: '',
+  items: [],
+  address: {},
+  payment: {},
 };
 
 export const cartReducer = (state = initialState, action) => {
-	switch (action.type) {
-		case constants.ADD_TO_CART:
-			let alreadyInCart = state.cart.find(
-				(item) => item.itemName === action.payload.itemName
-			);
-			if (alreadyInCart) {
-				return {
-					...state,
-					cart: state.cart.map((item) =>
-						item.itemName === action.payload.itemName ? action.payload : item
-					),
-				};
-			} else
-				return {
-					...state,
-					cart: [...state.cart, action.payload],
-				};
-		case constants.ADJUST_ITEM_QTY:
-			let alreadyInCartItem = state.cart.find(
-				(item) => item.itemName === action.payload.itemName
-			);
-			if (alreadyInCartItem) {
-				return {
-					...state,
-					cart: state.cart.map((item) =>
-						item.itemName === action.payload.itemName ? action.payload : item
-					),
-				};
-			} else
-				return {
-					...state,
-					cart: [...state.cart, action.payload],
-				};
-		case constants.REMOVE_FROM_CART:
-			return {
-				...state,
-				cart: state.cart.filter((item) => item.itemName !== action.payload),
-			};
-		case constants.RESET_CART:
-			return {
-				...state,
-				cart: [],
-			};
-		default:
-			return state;
-	}
+  switch (action.type) {
+    case constants.ADD_TO_CART:
+      const item = {
+        name: action.payload.name,
+        quantity: action.payload.qty,
+        unit: action.payload.unit,
+      };
+      const existingItem = state.items.find(
+        item => item.name === action.payload.name,
+      );
+      if (existingItem !== undefined) {
+        return {
+          ...state,
+          items: state.items.map(item =>
+            item.name === action.payload.name
+              ? {
+                  ...item,
+                  quantity: action.payload.qty,
+                  unit: action.payload.unit,
+                }
+              : item,
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          items: [...state.items, item],
+        };
+      }
+    case constants.REMOVE_FROM_CART:
+      const remItems = state.items.filter(
+        item => action.payload.name !== item.name,
+      );
+      return {
+        ...state,
+        items: remItems,
+      };
+    case constants.ADD_ORDER_NAME:
+      return {
+        ...state,
+        name: action.payload,
+      };
+    case constants.ADD_CATEGORY:
+      return {
+        ...state,
+        category: action.payload,
+      };
+    case constants.RESET_CART:
+      return {
+        ...state,
+        name: '',
+        category: '',
+        items: [],
+        address: {},
+        payment: {},
+      };
+    default:
+      return state;
+  }
 };

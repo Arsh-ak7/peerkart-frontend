@@ -165,68 +165,69 @@ const CreateOrderModal = ({ modalVisible, setModalVisible }) => {
 								<div className='items-wrapper'>
 									<span className='label-right'>ITEMS IN CART</span>
 									<div className='item-cont'>
-										{itemsInCart.map((item) => (
-											<>
-												<div className='item-row'>
-													<span className='label-right-value'>
-														{item.itemName}
-													</span>
-													<div className='item-row-right'>
+										{itemsInCart &&
+											itemsInCart.map((item) => (
+												<>
+													<div className='item-row'>
 														<span className='label-right-value'>
-															{item.qty} {item.unit}
+															{item.itemName}
 														</span>
-														<div>
-															<Delete />
-															<Edit />
+														<div className='item-row-right'>
+															<span className='label-right-value'>
+																{item.qty} {item.unit}
+															</span>
+															<div>
+																<Delete />
+																<Edit />
+															</div>
 														</div>
 													</div>
-												</div>
 
-												<div className='item-row'>
-													<span className='label-right-value'>
-														{item.itemName}
-													</span>
-													<div className='item-row-right'>
+													<div className='item-row'>
 														<span className='label-right-value'>
-															{item.qty} {item.unit}
+															{item.itemName}
 														</span>
-														<div>
-															<Delete />
-															<Edit />
+														<div className='item-row-right'>
+															<span className='label-right-value'>
+																{item.qty} {item.unit}
+															</span>
+															<div>
+																<Delete />
+																<Edit />
+															</div>
 														</div>
 													</div>
-												</div>
 
-												<div className='item-row'>
-													<span className='label-right-value'>
-														{item.itemName}
-													</span>
-													<div className='item-row-right'>
+													<div className='item-row'>
 														<span className='label-right-value'>
-															{item.qty} {item.unit}
+															{item.itemName}
 														</span>
-														<div>
-															<Delete />
-															<Edit />
+														<div className='item-row-right'>
+															<span className='label-right-value'>
+																{item.qty} {item.unit}
+															</span>
+															<div>
+																<Delete />
+																<Edit />
+															</div>
 														</div>
 													</div>
-												</div>
-												<div className='item-row'>
-													<span className='label-right-value'>
-														{item.itemName}
-													</span>
-													<div className='item-row-right'>
+													<div className='item-row'>
 														<span className='label-right-value'>
-															{item.qty} {item.unit}
+															{item.itemName}
 														</span>
-														<div>
-															<Delete />
-															<Edit />
+														<div className='item-row-right'>
+															<span className='label-right-value'>
+																{item.qty} {item.unit}
+															</span>
+															<div>
+																<Delete />
+																<Edit />
+															</div>
 														</div>
 													</div>
-												</div>
-											</>
-										))}
+												</>
+											))}
 									</div>
 								</div>
 								<div className='addCart-btn'>
