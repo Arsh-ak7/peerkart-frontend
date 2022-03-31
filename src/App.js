@@ -5,18 +5,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import store from "./redux/store";
-import { Provider } from "react-redux";
+
+import { Provider, useSelector } from "react-redux";
 
 function App() {
+	const token=useSelector(state=>state.auth.userData.token);
 	return (
-		<Provider store={store}>
+		
 			<Router>
 				<Routes>
 					<Route path='/login' element={<Login />} />
 					<Route path="/register" element={<Register/>}/>
 				</Routes>
-				<div className='app'>
+				{token && <div className='app'>
 					<div className='app-left'>
 						<Sidebar />
 					</div>
@@ -27,9 +28,8 @@ function App() {
 							<Route path='/dashboard' element={<Dashboard />} />
 						</Routes>
 					</div>
-				</div>
+				</div>}
 			</Router>
-		</Provider>
 	);
 }
 

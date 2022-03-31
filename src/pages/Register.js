@@ -5,10 +5,31 @@ import GoogleIcon from "../images/google.svg";
 import FacebookIcon from "../images/facebook.svg";
 import AppleIcon from "../images/apple.svg";
 import "../css/Register.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import axiosInstance from '../utils/axios';
 
 export default function Register() {
-
+	const navigate=useNavigate();
+	const [username,setUsername]=useState('');
+	const [email,setEmail]=useState('');
+	const [password,setPassword]=useState('');
+	const RegisterHandler=async(e)=>{
+		e.preventDefault();
+		console.log("hi");
+		axiosInstance
+      .post('/auth/signup', {
+        username,
+        email,
+        password,
+        confirmPassword: password,
+      })
+      .then(res => {
+		navigate("/login")
+      })
+      .catch(error => {
+        console.log(error);
+      });
+	}
 	return (
 		<div className='register-main'>
 			<div className='register-container'>
@@ -31,6 +52,8 @@ export default function Register() {
 								className='input-field-register'
 								name='username'
 								placeholder='Username'
+								value={username}
+								onChange={(txt)=>{setUsername(txt.target.value)}}
 							/>
 							<label className='register-label'>Email</label>
 							<input
@@ -38,6 +61,8 @@ export default function Register() {
 								className='input-field-register'
 								name='email'
 								placeholder='Email'
+								value={email}
+								onChange={(txt)=>{setEmail(txt.target.value)}}
 							/>
 							<label className='register-label'>Password</label>
 							<input
@@ -45,9 +70,11 @@ export default function Register() {
 								className='input-field-register'
 								name='password'
 								placeholder='Password'
+								value={password}
+								onChange={(txt)=>{setPassword(txt.target.value)}}
 							/>
 							<div className='register-btn-cont'>
-								<button type='submit' className='register-button'>
+								<button type='submit' className='register-button'  onClick={RegisterHandler}>
 									REGISTER
 								</button>
 							</div>

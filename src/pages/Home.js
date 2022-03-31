@@ -14,7 +14,6 @@ const Home = () => {
 						<div className='create-btn' onClick={() => setModalVisible(true)}>
 							Create Order
 						</div>
-						<div className='filter'>filter</div>
 						<div className='logout'>Log out</div>
 					</div>
 				</div>

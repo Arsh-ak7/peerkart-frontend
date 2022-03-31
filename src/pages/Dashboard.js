@@ -12,11 +12,13 @@ import {faPlus,faPencil} from "@fortawesome/free-solid-svg-icons";
 import Modal from "../compnents/Modal";
 import ModalAccepted from "../compnents/ModalAccepted";
 import ModalTransaction from "../compnents/ModalTransaction";
+import ProfileDetail from "../compnents/ProfileDetails";
 
 const Dashboard = () => {
 	const [modalOrderOpen, setModalOrderOpen] = useState(false);
 	const [modalAcceptedOrderOpen, setModalAcceptedOrderOpen] = useState(false);
 	const [modalTransactionOpen, setModalTransactionOpen] = useState(false);
+	const [modalDetail,setModalDetail]=useState(false);
 	return(
 		<>
 		<div className="wrapper">
@@ -31,7 +33,7 @@ const Dashboard = () => {
 				</div>
 				<div className="middle-boxes">
 					<div className="mid-boxes profile_div">
-						<p className="heading-boxes">Profile Information<span className="update_profile_icon"><FontAwesomeIcon className="pluspencil" icon={faPencil}></FontAwesomeIcon></span></p>
+						<p className="heading-boxes">Profile Information<span className="update_profile_icon" onClick={()=>{setModalDetail(true)}}><FontAwesomeIcon className="pluspencil" icon={faPencil}></FontAwesomeIcon></span></p>
 						<p className="profileboxinfo"><span className="profileboxinfotag">Full Name:</span> <span className="profileboxinfoanswer">Kush Jaiswal</span></p>
 						<p className="profileboxinfo"><span className="profileboxinfotag">Mobile:</span> <span className="profileboxinfoanswer">+91 9876543210</span></p>
 						<p className="profileboxinfo"><span className="profileboxinfotag">Email:</span> <span className="profileboxinfoanswer">kush.jaiswal@iiitg.ac.in</span></p>
@@ -165,6 +167,7 @@ const Dashboard = () => {
 		{modalOrderOpen && <Modal setModalOrderOpen={setModalOrderOpen}/>}
 		{modalAcceptedOrderOpen && <ModalAccepted setModalAcceptedOrderOpen={setModalAcceptedOrderOpen}/>}
 		{modalTransactionOpen && <ModalTransaction setModalTransactionOpen={setModalTransactionOpen}/>}
+		{modalDetail && <ProfileDetail setModalDetail={setModalDetail}/>}
 		</>
 		
 	) 

@@ -1,10 +1,32 @@
 import React, { useState, useContext } from "react";
 import Loginbackground from "../images/logincover.svg";
+import { useDispatch } from 'react-redux';
 import Loginfooter from "../images/loginfooter.svg";
 import "../css/Login.css";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import axiosInstance from '../utils/axios';
+import { saveUserData } from '../redux/actions/authActions';
 
 export default function Login() {
+	const navigate=useNavigate();
+	const dispatch=useDispatch();
+	const [email,setEmail]=useState('');
+	const [password,setPassword]=useState('');
+	const loginHandler=async(e)=>{
+		e.preventDefault();
+		axiosInstance
+      .post('/auth/login', {
+        email,
+        password,
+      })
+      .then(res => {
+        saveUserData(dispatch, res.data);
+		navigate("/");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+	}
 	return (
 		<div className='login-main'>
 			<div className='login-container'>
@@ -23,6 +45,8 @@ export default function Login() {
 								className='input-field'
 								name='username'
 								placeholder='Email'
+								value={email}
+								onChange={(text)=>{setEmail(text.target.value)}}
 							/>
 							<label>Password</label>
 							<input
@@ -30,8 +54,10 @@ export default function Login() {
 								className='input-field'
 								name='password'
 								placeholder='Password'
+								value={password}
+								onChange={(text)=>{setPassword(text.target.value)}}
 							/>
-							<button type='submit' className='login-button'>
+							<button type='submit' className='login-button' onClick={loginHandler}>
 								SIGN IN
 							</button>
 						</form>
