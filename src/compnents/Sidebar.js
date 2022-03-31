@@ -9,12 +9,29 @@ import {
 	AssignmentInd,
 	RocketLaunch,
 } from "@mui/icons-material";
+import Logo from "../images/logop.png";
 
 const Sidebar = () => {
 	return (
 		<div className='sidebar-con'>
 			<div className='side'>
-				<div className='logo'>Logo</div>
+				<div
+					className='logo'
+					style={{
+						paddingBottom: "20px",
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						paddingTop: "20px",
+					}}>
+					<img
+						src={Logo}
+						style={{
+							height: "40px",
+							width: "40px",
+						}}
+					/>
+				</div>
 				<ul className='side-menu'>
 					<Link to='/' className='sidelink'>
 						<li className='side-option'>
