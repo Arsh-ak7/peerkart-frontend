@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 import CreateOrderModal from "../compnents/CreateOrderModal";
 import "../css/Home.css";
 import Avatar from "../images/avatar.svg";
+import constants from "../redux/constants";
 import axiosInstance from "../utils/axios";
 
 const Home = () => {
 	const [modalVisible, setModalVisible] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [orders, setOrders] = useState();
+	const dispatch=useDispatch();
+	const navigate=useNavigate();
 
 	const token = useSelector((state) => state.auth.userData.token);
 
@@ -52,7 +56,10 @@ const Home = () => {
 						<div className='create-btn' onClick={() => setModalVisible(true)}>
 							Create Order
 						</div>
-						<div className='logout'>Log out</div>
+						<div className='logout' onClick={()=>{
+							dispatch({type:constants.LOGOUT})
+							navigate("/login");
+						}}>Log out</div>
 					</div>
 				</div>
 				<div className='home' style={{ marginTop: "20px" }}>

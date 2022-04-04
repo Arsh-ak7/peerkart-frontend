@@ -1,5 +1,5 @@
 import React from "react";
-import {useState} from "react";
+import {useState,useEffect} from "react";
 import profiletop from "../images/profile-top.png";
 import avatar from "../images/avatar.png";
 import "../css/Dashboard.css";
@@ -13,12 +13,18 @@ import Modal from "../compnents/Modal";
 import ModalAccepted from "../compnents/ModalAccepted";
 import ModalTransaction from "../compnents/ModalTransaction";
 import ProfileDetail from "../compnents/ProfileDetails";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+	const userData=useSelector(state=>state.auth.userData);
 	const [modalOrderOpen, setModalOrderOpen] = useState(false);
 	const [modalAcceptedOrderOpen, setModalAcceptedOrderOpen] = useState(false);
 	const [modalTransactionOpen, setModalTransactionOpen] = useState(false);
 	const [modalDetail,setModalDetail]=useState(false);
+	console.log(userData);
+	useEffect(()=>{
+		
+	},[])
 	return(
 		<>
 		<div className="wrapper">
@@ -27,24 +33,24 @@ const Dashboard = () => {
 				<div className='profilewrap'>
 					<img src={avatar} className='avatarimg' alt='profile-img'/>
 						<div className='profileinfodiv'>
-							<p className='profileinfoname'>Kush Jaiswal</p>
-							<div className='profileinfoAddress'>+91 9876543210</div>
+							<p className='profileinfoname'>{userData.username}</p>
+							{userData.contact.length>0 && <div className='profileinfoAddress'>{userData.contact}</div>}
 						</div>
 				</div>
 				<div className="middle-boxes">
 					<div className="mid-boxes profile_div">
 						<p className="heading-boxes">Profile Information<span className="update_profile_icon" onClick={()=>{setModalDetail(true)}}><FontAwesomeIcon className="pluspencil" icon={faPencil}></FontAwesomeIcon></span></p>
-						<p className="profileboxinfo"><span className="profileboxinfotag">Full Name:</span> <span className="profileboxinfoanswer">Kush Jaiswal</span></p>
-						<p className="profileboxinfo"><span className="profileboxinfotag">Mobile:</span> <span className="profileboxinfoanswer">+91 9876543210</span></p>
-						<p className="profileboxinfo"><span className="profileboxinfotag">Email:</span> <span className="profileboxinfoanswer">kush.jaiswal@iiitg.ac.in</span></p>
+						<p className="profileboxinfo"><span className="profileboxinfotag">Full Name:</span> <span className="profileboxinfoanswer">{userData.username || "Kush Jaiswal"}</span></p>
+						<p className="profileboxinfo"><span className="profileboxinfotag">Mobile:</span> <span className="profileboxinfoanswer">{userData.contact || "+91 9876543210"}</span></p>
+						<p className="profileboxinfo"><span className="profileboxinfotag">Email:</span> <span className="profileboxinfoanswer">{userData.email || "kush.jaiswal@iiitg.ac.in"}</span></p>
 						<p className="profileboxinfo"><span className="profileboxinfotag">Address:</span></p>
-						<p className="profileboxlineinfo"><span className="profileboxinfoanswer">IIIT Guwahati Boys Hostel, Guwahati</span></p>
+						<p className="profileboxlineinfo"><span className="profileboxinfoanswer">{userData.address[0].address || "IIIT Guwahati Boys Hostel, Guwahati"}</span></p>
 						
 						<p className="profileboxinfo"><span className="profileboxinfotag">Default Payment Method:</span></p>
 						<p className="profileboxlineinfo"> <span className="profileboxinfoanswer">Method Name: UPI</span></p>
 						<p className="profileboxlineinfo"> <span className="profileboxinfoanswer">Details:</span></p>
 						<p className="profileboxlineinfo"> <span className="profileboxinfoanswer">Associated Bank: AXIS Bank</span></p>
-						<p className="profileboxlineinfo"> <span className="profileboxinfoanswer">UPI ID: xxxx xxxx 3415</span></p>
+						<p className="profileboxlineinfo"> <span className="profileboxinfoanswer">UPI ID: {userData.paymentMethod[0].paymentId || "xxxx xxxx 3415"}</span></p>
 					</div>
 					<div className="mid-boxes order_created_div">
 						<p className="heading-boxes upper">Orders Generated</p>
