@@ -11,7 +11,7 @@ import { Provider, useSelector } from "react-redux";
 function App() {
 	const token=useSelector(state=>state.auth.userData.token);
 	return (
-		
+		<div>
 			<Router>
 				<Routes>
 					<Route path='/login' element={<Login />} />
@@ -30,6 +30,7 @@ function App() {
 					</div>
 				</div>}
 			</Router>
+		</div>
 	);
 }
 
